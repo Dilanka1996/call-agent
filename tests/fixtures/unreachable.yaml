@@ -1,0 +1,9 @@
+# Failure: Payer system is completely unreachable
+scenario: benefits_verification
+user_id: ref-10004
+
+ivr:
+  root: ""
+
+inject:
+  unreachable: true

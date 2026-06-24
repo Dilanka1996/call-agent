@@ -1,0 +1,18 @@
+# Golden transcript: Successful prior authorization follow-up
+scenario: prior_authorization
+user_id: ref-30001
+
+ivr:
+  root: "Press 1 eligibility, 2 claims, 3 auth"
+  "3": "Hold for authorizations..."
+
+rep_answers:
+  auth_status: "The authorization status is pending."
+  reference_number: "The reference number is PA-78432."
+  missing_docs: "We're still waiting on clinical notes."
+  decision_eta: "Usually takes about 5 business days."
+  next_steps: "Have the provider fax the clinical notes to our auth department."
+
+expected_output:
+  status: success
+  confidence: 0.92

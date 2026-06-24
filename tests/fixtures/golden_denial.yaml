@@ -1,0 +1,18 @@
+# Golden transcript: Successful claim denial follow-up
+scenario: claim_denial
+user_id: ref-20001
+
+ivr:
+  root: "Press 1 eligibility, 2 claims, 3 auth"
+  "2": "Hold for claims..."
+
+rep_answers:
+  claim_status: "Yes, I see that claim was denied."
+  denial_reason: "The denial code is CO-4. procedure not covered."
+  amount_owed: "The billed amount was 450 dollars."
+  appeal_info: "You can submit an appeal within 60 days."
+  next_steps: "Fax the appeal to the number on the EOB."
+
+expected_output:
+  status: success
+  confidence: 0.90

@@ -1,0 +1,13 @@
+# Ambiguity: Rep contradicts themselves on copay amount
+scenario: benefits_verification
+user_id: ref-10006
+
+ivr:
+  root: "Press 1 eligibility, 2 claims, 3 auth"
+  "1": "Hold for the next representative..."
+
+inject:
+  contradict:
+    field: copay
+    on_question: 2
+    second_answer: "Actually it's $40, I apologize for the confusion."

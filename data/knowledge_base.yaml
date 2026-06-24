@@ -1,0 +1,169 @@
+# Central Knowledge Base for Payer Q&A
+# Defines questions, variations, answer templates, and expected answer fields for each scenario
+# answer_template uses {field_name} placeholders filled from user_context
+
+benefits_verification:
+  coverage_active:
+    questions:
+      primary: "Is the coverage active for this member?"
+      variations:
+        - "Is the policy active?"
+        - "Is coverage still active?"
+        - "Can you verify if they're eligible?"
+        - "Are they currently covered?"
+    answer_field: coverage_active
+    answer_template: "Yeah that policy's active through end of year."
+
+  copay:
+    questions:
+      primary: "What is the copay amount?"
+      variations:
+        - "What's the copay?"
+        - "How much is the copay?"
+        - "What's the office visit copay?"
+        - "What do they pay per visit?"
+        - "Can you confirm the copay?"
+    answer_field: copay
+    answer_template: "Copay is {copay} dollars."
+
+  deductible:
+    questions:
+      primary: "How much is left on the deductible?"
+      variations:
+        - "What's the deductible remaining?"
+        - "Have they met their deductible?"
+        - "What's left on their deductible?"
+        - "How much deductible remains?"
+    answer_field: deductible_remaining
+    answer_template: "They've got {deductible_remaining} left on the deductible."
+
+  visit_limit:
+    questions:
+      primary: "Is there a visit limit?"
+      variations:
+        - "Any visit limits on this plan?"
+        - "How many visits are allowed?"
+        - "Is there a limit on visits?"
+        - "What's the visit limit?"
+    answer_field: visit_limit
+    answer_template: "Hmm I'm not seeing a visit limit on this."
+
+  prior_auth:
+    questions:
+      primary: "Does this service require prior authorization?"
+      variations:
+        - "Is prior auth needed?"
+        - "Do I need to get authorization first?"
+        - "Does this need pre-approval?"
+        - "Is authorization required?"
+    answer_field: prior_auth_required
+    answer_template: "That service does need a prior auth."
+
+claim_denial:
+  claim_status:
+    questions:
+      primary: "What is the status of this claim?"
+      variations:
+        - "Was this claim denied?"
+        - "Can you check the claim status?"
+        - "What happened to this claim?"
+        - "Is the claim denied?"
+    answer_field: claim_denied
+    answer_template: "Yeah I see that claim, it was denied on the 15th."
+
+  denial_reason:
+    questions:
+      primary: "What is the denial reason?"
+      variations:
+        - "Why was the claim denied?"
+        - "What's the denial code?"
+        - "What was the reason for denial?"
+        - "Can you tell me the denial reason?"
+    answer_field: denial_code
+    answer_template: "Denial code is {denial_code}. That means the {denial_reason}."
+
+  amount_owed:
+    questions:
+      primary: "What is the billed amount?"
+      variations:
+        - "How much was the claim for?"
+        - "What's the amount owed?"
+        - "What was the charge?"
+        - "How much is owed?"
+    answer_field: claim_amount
+    answer_template: "The billed amount was {claim_amount} dollars."
+
+  appeal_info:
+    questions:
+      primary: "How can I appeal this denial?"
+      variations:
+        - "What's the appeal process?"
+        - "How long do I have to appeal?"
+        - "Can this be appealed?"
+        - "What are the appeal options?"
+    answer_field: appeal_deadline_days
+    answer_template: "You can submit an appeal within {appeal_deadline_days} days. You'll need the medical records and a letter of medical necessity."
+
+  next_steps:
+    questions:
+      primary: "What are the next steps?"
+      variations:
+        - "What should I do next?"
+        - "Where do I submit the appeal?"
+        - "What now?"
+    answer_field: next_steps
+    answer_template: "Fax the appeal to the number on the EOB, attention appeals department."
+
+prior_authorization:
+  auth_status:
+    questions:
+      primary: "What is the authorization status?"
+      variations:
+        - "Is the auth still pending?"
+        - "Has the prior auth been approved?"
+        - "What's the status of the auth request?"
+        - "Is authorization approved?"
+    answer_field: auth_status
+    answer_template: "I see a {auth_status} auth request from the 10th."
+
+  reference_number:
+    questions:
+      primary: "What is the reference number?"
+      variations:
+        - "Can I get the auth reference number?"
+        - "What's the tracking number?"
+        - "What's the authorization number?"
+        - "Do you have a reference number?"
+    answer_field: reference_number
+    answer_template: "The reference number is {reference_number}."
+
+  missing_docs:
+    questions:
+      primary: "What documents are still needed?"
+      variations:
+        - "Is anything missing from the request?"
+        - "What else do you need?"
+        - "Are there missing documents?"
+        - "What's needed to complete this?"
+    answer_field: missing_documents
+    answer_template: "We're still waiting on the clinical notes from the ordering provider."
+
+  decision_eta:
+    questions:
+      primary: "How long until a decision?"
+      variations:
+        - "When will we hear back?"
+        - "What's the turnaround time?"
+        - "How many days for a decision?"
+        - "When can we expect a response?"
+    answer_field: decision_eta_days
+    answer_template: "Usually takes about {decision_eta_days} business days once we have everything."
+
+  next_steps:
+    questions:
+      primary: "What are the next steps?"
+      variations:
+        - "What should the provider do?"
+        - "What's the next action?"
+    answer_field: next_steps
+    answer_template: "Have the provider fax the clinical notes to our auth department."

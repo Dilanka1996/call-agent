@@ -1,0 +1,10 @@
+# Demo fixture for CLI testing - supports all IVR scenarios
+scenario: benefits_verification
+user_id: demo-user
+
+ivr:
+  prompt: "Press 1 eligibility, 2 claims, 3 auth"
+  routes:
+    "1": { next_prompt: "One moment please...", connects_to_rep: true }
+    "2": { next_prompt: "Transferring to claims...", connects_to_rep: true }
+    "3": { next_prompt: "Connecting to prior auth...", connects_to_rep: true }

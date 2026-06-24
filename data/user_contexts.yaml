@@ -1,0 +1,121 @@
+# Centralized user contexts for test fixtures
+# Fixtures reference users by ID instead of duplicating user_context data
+
+# Demo user with all fields (for CLI testing across all IVR options)
+demo-user:
+  member_id_token: "demo-user"
+  plan_type: "ppo"
+  state: "CA"
+  # Benefits fields
+  coverage_active: true
+  copay: 25
+  deductible_remaining: 500
+  visit_limit: null
+  prior_auth_required: true
+  # Claims fields
+  claim_denied: true
+  denial_code: "CO-97"
+  denial_reason: "missing prior authorization"
+  claim_amount: 1250
+  appeal_deadline_days: 45
+  # Prior auth fields
+  auth_status: "pending"
+  reference_number: "PA-99887"
+  decision_eta_days: 3
+  missing_documents:
+    - "clinical notes"
+
+# Benefits verification users
+ref-10001:
+  member_id_token: "ref-10001"
+  plan_type: "ppo"
+  state: "CA"
+  coverage_active: true
+  copay: 20
+  deductible_remaining: 350
+  visit_limit: null
+  prior_auth_required: true
+
+ref-10002:
+  member_id_token: "ref-10002"
+  plan_type: "hmo"
+  state: "TX"
+  coverage_active: true
+  copay: 35
+  copay_pcp: 15
+  deductible_remaining: 0
+  visit_limit: 20
+  visits_used: 8
+  prior_auth_required: false
+
+ref-10003:
+  member_id_token: "ref-10003"
+  plan_type: "ppo"
+  state: "CA"
+  coverage_active: true
+  copay: 20
+  deductible_remaining: 500
+  visit_limit: null
+  prior_auth_required: true
+
+ref-10004:
+  member_id_token: "ref-10004"
+  plan_type: "ppo"
+  state: "WA"
+  coverage_active: true
+  copay: 25
+  deductible_remaining: 200
+  visit_limit: null
+  prior_auth_required: false
+
+ref-10005:
+  member_id_token: "ref-10005"
+  plan_type: "ppo"
+  state: "IL"
+  coverage_active: true
+  copay: 20
+  deductible_remaining: 100
+  visit_limit: null
+  prior_auth_required: true
+
+ref-10006:
+  member_id_token: "ref-10006"
+  plan_type: "hmo"
+  state: "OH"
+  coverage_active: true
+  copay: 20
+  deductible_remaining: 0
+  visit_limit: null
+  prior_auth_required: false
+
+# Claim denial users
+ref-20001:
+  member_id_token: "ref-20001"
+  plan_type: "ppo"
+  state: "NY"
+  claim_denied: true
+  denial_code: "CO-4"
+  denial_reason: "procedure not covered"
+  claim_amount: 450
+  appeal_deadline_days: 60
+
+ref-20002:
+  member_id_token: "ref-20002"
+  plan_type: "ppo"
+  state: "GA"
+  claim_denied: true
+  denial_code: "CO-4"
+  denial_reason: "not a covered service"
+  claim_amount: 325
+  appeal_deadline_days: 60
+
+# Prior authorization users
+ref-30001:
+  member_id_token: "ref-30001"
+  plan_type: "hmo"
+  state: "FL"
+  auth_status: "pending"
+  reference_number: "PA-78432"
+  decision_eta_days: 5
+  missing_documents:
+    - "clinical notes"

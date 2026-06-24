@@ -1,0 +1,10 @@
+# Failure: Call drops mid-conversation after 3 questions
+scenario: benefits_verification
+user_id: ref-10003
+
+ivr:
+  root: "Press 1 eligibility, 2 claims, 3 auth"
+  "1": "Hold for the next representative..."
+
+inject:
+  drop_after_question: 3

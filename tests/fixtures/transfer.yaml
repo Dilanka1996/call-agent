@@ -1,0 +1,10 @@
+# Failure: Rep transfers to different department
+scenario: claim_denial
+user_id: ref-20002
+
+ivr:
+  root: "Press 1 eligibility, 2 claims, 3 auth"
+  "2": "Hold for claims..."
+
+inject:
+  transfer_on: claim_status

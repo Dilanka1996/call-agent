@@ -1,0 +1,11 @@
+# Ambiguity: Rep gives unexpected/unclear answer
+scenario: benefits_verification
+user_id: ref-10005
+
+ivr:
+  root: "Press 1 eligibility, 2 claims, 3 auth"
+  "1": "Hold for the next representative..."
+
+inject:
+  off_script_on: visit_limit
+  off_script_response: "Well, it depends. There might be a limit if they're using out-of-network, but in-network I think it's unlimited? Let me check... the system is slow today. Can you hold?"

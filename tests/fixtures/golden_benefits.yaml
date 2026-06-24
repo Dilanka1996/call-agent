@@ -1,0 +1,18 @@
+# Golden transcript: Successful benefits verification
+scenario: benefits_verification
+user_id: ref-10001
+
+ivr:
+  root: "Press 1 eligibility, 2 claims, 3 auth"
+  "1": "Hold for the next representative..."
+
+rep_answers:
+  coverage_active: "Yeah that policy's active through end of year."
+  copay: "Copay is 20 dollars."
+  deductible: "They've got 350 left on the deductible."
+  visit_limit: "I'm not seeing a visit limit on this plan."
+  prior_auth: "Yes, prior authorization is required."
+
+expected_output:
+  status: success
+  confidence: 0.95
